@@ -10,6 +10,13 @@ void login();
 void patinhos();
 void enigma();
 void conversor();
+void sequencia();
+
+int calculadora();
+int soma(int x, int y);
+int sub(int x, int y);
+int divi(int x, int y);
+int po(int x, int y);
 
 void funcaot();
 void maior();
@@ -316,10 +323,22 @@ int main() {
 	
 	else if(n==2) {
 	system("cls");
-	printf("Z:\\Sala de aula\n\n1. Cinco patinhos\n\n2. Coversor de dias\n\n3. Eleição\n\n4. Enigma\n\n5. Função tripla\n\n6. Login\n\n7. Mariana\n\n8. Zerinho ou um\n\nEscolha: ");
+	printf("Z:\\Sala de aula\n\n1. Calculadora\n\n2. Cinco patinhos\n\n3. Coversor de dias\n\n4. Eleição\n\n5. Enigma\n\n6. Função tripla\n\n7. Login\n\n8. Mariana\n\n9. Sequencia de Fibonacci\n\n10. Zerinho ou um\n\nEscolha: ");
 	scanf("%d", &n);
 	
 	if(n==1) {
+    do {
+	system("cls");
+    calculadora();
+    printf("\n");
+	system("pause");
+	system("cls");
+	printf("1. Voltar ao menu\n\n2. Repetir programa\n\n3. Sair do programa\n\nEscolha: ");
+	scanf("%d", &d);
+	} while(d!=3&&d!=1);
+	}
+	
+	else if(n==2) {
     do {
 	system("cls");
     patinhos();
@@ -331,7 +350,7 @@ int main() {
 	} while(d!=3&&d!=1);
 	}
 	
-	else if(n==2) {
+	else if(n==3) {
 	do {
 	system("cls");
     conversor();
@@ -344,7 +363,7 @@ int main() {
 	
 	}
 	
-	else if(n==3) {
+	else if(n==4) {
 		system("cls");
 		if(v==0) {
 			printf("Z:\\Sala de aula\\Eleição\n\nAqui você pode ver todas as versões do programa Eleição,\nproduzido por Marcos Vinícius e Luiz Gabriel.\n\n");
@@ -469,7 +488,7 @@ int main() {
 	    printf("\nPrograma inexistente\n");
 	}
 	
-	else if(n==3) {
+	else if(n==5) {
 	    do {
 	system("cls");
 	enigma();
@@ -481,7 +500,7 @@ int main() {
 	} while(d!=3&&d!=1);
 	}
 	
-	else if(n==4) {
+	else if(n==6) {
 	    do {
 	system("cls");
 	    funcaot();
@@ -493,7 +512,7 @@ int main() {
 	} while(d!=3&&d!=1);
 	}
 	
-	else if(n==5) {
+	else if(n==7) {
 	do {
 	system("cls");
 	login();
@@ -505,7 +524,7 @@ int main() {
 	} while(d!=3&&d!=1);
 	}
 	
-	else if(n==6) {
+	else if(n==8) {
 	do {
 	system("cls");
 	m();
@@ -517,7 +536,19 @@ int main() {
 	} while(d!=3&&d!=1);
 	}
 	
-	else if(n==7) {
+	else if(n==9) {
+	    do {
+	system("cls");
+	sequencia();
+    printf("\n");
+	system("pause");
+	system("cls");
+	printf("1. Voltar ao menu\n\n2. Repetir programa\n\n3. Sair do programa\n\nEscolha: ");
+	scanf("%d", &d);
+	} while(d!=3&&d!=1);
+	}
+	
+	else if(n==10) {
     do {
 	system("cls");
 	z();
@@ -4464,4 +4495,98 @@ void conversor() {
 	d=(x%365)%30;
 	
 	printf("Ano(s): %d\nMes(es): %d\nDia(s): %d", a, m, d);
+}
+
+void sequencia() {
+	int x[47], n, iaa, i, j, ia, s;
+	
+	do {
+		s=0;
+		scanf("%d", &n);
+		if(n==0)
+		break;
+		
+		x[0]=0;
+		x[1]=1;
+		for(i=2; i<48; i++) {
+			ia=i-1;
+			iaa=i-2;
+			x[i]=x[iaa]+x[ia];
+		}
+		
+		for(j=0; j<n; j++) {
+			printf("%d ", x[j]);
+		}
+		printf("\n");
+	} while(n!=0);
+}
+
+int calculadora() {
+	int a, b, resultado;
+    char o;
+
+    scanf("%d%c%d", &a, &o, &b);
+
+    if(o == '+')
+    resultado = soma(a,b);
+
+    else if(o == '-')
+    resultado = sub(a,b);
+
+    else if(o == '/')
+    resultado = divi(a,b);
+
+    else if(o == '*')
+    resultado = mult(a,b);
+
+    else if(o == '^')
+    resultado = po(a,b);
+
+    else {
+        printf("Operador inexistente");
+        o='s';
+    }
+
+    if(o!='s')
+	printf("%d", resultado);
+}
+
+int soma(int x, int y) {
+    int resultado;
+
+    resultado= x+y;
+
+    return resultado;
+}
+
+int sub(int x, int y) {
+    int resultado;
+
+    resultado= x-y;
+
+    return resultado;
+}
+
+int divi(int x, int y) {
+    int resultado;
+
+    resultado= x/y;
+
+    return resultado;
+}
+
+int mult(int x, int y) {
+    int resultado;
+
+    resultado= x*y;
+
+    return resultado;
+}
+
+int po(int x, int y) {
+    int resultado;
+
+    resultado= pow(x,y);
+
+    return resultado;
 }
